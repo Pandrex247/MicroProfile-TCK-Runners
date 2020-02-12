@@ -15,6 +15,11 @@
             </class>
             <class name="org.eclipse.microprofile.fault.tolerance.tck.bulkhead.BulkheadAsynchRetryTest">
                 <methods>
+                    <exclude name="testBulkheadMethodSemaphore3"></exclude>
+                </methods>
+            </class>
+            <class name="org.eclipse.microprofile.fault.tolerance.tck.bulkhead.BulkheadAsynchRetryTest">
+                <methods>
                     <exclude name="testRetriesJoinBackOfQueue"></exclude>
                 </methods>
             </class>
