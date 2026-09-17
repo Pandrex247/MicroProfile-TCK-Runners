@@ -80,9 +80,9 @@ import java.util.logging.Logger;
  * marker is not written to the client JVM's {@code System.out}, so this observer
  * is a no-op there.</p>
  */
-public class DeploymentFailureDetector {
+public class MicroDeploymentFailureDetector {
 
-    private static final Logger LOG = Logger.getLogger(DeploymentFailureDetector.class.getName());
+    private static final Logger LOG = Logger.getLogger(MicroDeploymentFailureDetector.class.getName());
 
     /**
      * Marker Payara Micro prints when an application fails to load during
