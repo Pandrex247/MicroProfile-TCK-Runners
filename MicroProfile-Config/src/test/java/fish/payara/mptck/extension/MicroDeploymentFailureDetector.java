@@ -73,9 +73,9 @@ import java.util.logging.Logger;
  * so Arquillian's {@code DeploymentExceptionHandler} catches it and matches it
  * against the deployment's expected exception type.</p>
  */
-public class DeploymentFailureDetector {
+public class MicroDeploymentFailureDetector {
 
-    private static final Logger LOG = Logger.getLogger(DeploymentFailureDetector.class.getName());
+    private static final Logger LOG = Logger.getLogger(MicroDeploymentFailureDetector.class.getName());
 
     /**
      * Marker Payara Micro prints when an application fails to load during
