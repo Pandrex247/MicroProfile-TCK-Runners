@@ -54,7 +54,7 @@ public class ArquillianExtension implements LoadableExtension {
         LOG.log(Level.INFO, "\n Registered Payara TCK ArquillianExtension \n");
         extensionBuilder.service(ApplicationArchiveProcessor.class, ArquillianArchiveProcessor.class).observer(LifecycleExecutor.class);
 
-        if (Boolean.getBoolean("payara.micro.managed") || Boolean.getBoolean("payara.micro.remote")) {
+        if (System.getProperty("payara.micro.managed") != null || System.getProperty("payara.micro.remote") != null) {
             extensionBuilder.observer(MicroDeploymentFailureDetector.class);
         }
 

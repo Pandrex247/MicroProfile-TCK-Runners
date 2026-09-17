@@ -380,6 +380,7 @@
                             <systemPropertyVariables>
                                 <arquillian.launch>payara-micro-managed</arquillian.launch>
                                 <micro.randomPort>${micro.randomPort}</micro.randomPort>
+                                <payara.micro.managed/>
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>
@@ -401,6 +402,20 @@
                     <optional>true</optional>
                 </dependency>
             </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <payara.micro.remote/>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>payara-server-embedded</id>
