@@ -17,7 +17,7 @@ The TCK tests are designed as Arquillian tests, which run tests in an isolated c
   to be rejected with a `FaultToleranceDefinitionException`. Payara Micro deploys
   applications with `--loadOnly`, so it logs the validation failure but boots
   anyway and the managed Arquillian connector reports a successful deployment. An
-  Arquillian observer, `DeploymentFailureDetector` (see `src/test/java`),
+  Arquillian observer, `MicroDeploymentFailureDetector` (see `src/test/java`),
   captures Micro's console output around each deployment and, when it sees the
   failure, rethrows it as a deployment exception whose type matches the test's
   `@ShouldThrowException`. It only uses Arquillian SPI, so it is a no-op on the
