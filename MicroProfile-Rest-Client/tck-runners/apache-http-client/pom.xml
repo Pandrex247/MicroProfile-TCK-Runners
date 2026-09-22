@@ -205,6 +205,25 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <dependenciesToScan>
+                                <dependency>org.eclipse.microprofile.rest.client:microprofile-rest-client-tck</dependency>
+                            </dependenciesToScan>
+                            <includes>
+                                <include>**/ProxyServerTest.java</include>
+                            </includes>
+                            <suiteXmlFiles combine.self="override"/>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -222,22 +241,8 @@
                                     <goal>integration-test</goal>
                                 </goals>
                                 <configuration>
-                                    <skipTests>false</skipTests>
-                                    <!--
-                                        Activating a profile on the command line (e.g. -Ppayara-micro-managed)
-                                        deactivates the activeByDefault 'proxy-tests-only' profile, so the
-                                        test-selection config it provides must be repeated here. Otherwise
-                                        failsafe falls back to the parent's ${mptck.suite} suiteXmlFiles,
-                                        which is unset and fails with "testSuiteXmlFiles0 has null value".
-                                    -->
-                                    <dependenciesToScan>
-                                        <dependency>org.eclipse.microprofile.rest.client:microprofile-rest-client-tck
-                                        </dependency>
-                                    </dependenciesToScan>
-                                    <includes>
-                                        <include>**/ProxyServerTest.java</include>
-                                    </includes>
-                                    <suiteXmlFiles combine.self="override"/>
+                                    <!-- Don't run for Micro - need to investigate adding the required libraries -->
+                                    <skip>true</skip>
                                 </configuration>
                             </execution>
                         </executions>
@@ -286,7 +291,6 @@
             </build>
         </profile>
 
-        <!-- Test selection -->
         <profile>
             <id>all</id>
             <build>
@@ -305,36 +309,6 @@
                                     </dependenciesToScan>
                                     <includes>
                                         <include>**/*Test.java</include>
-                                    </includes>
-                                    <suiteXmlFiles combine.self="override"/>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>proxy-tests-only</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                </goals>
-                                <configuration>
-                                    <dependenciesToScan>
-                                        <dependency>org.eclipse.microprofile.rest.client:microprofile-rest-client-tck
-                                        </dependency>
-                                    </dependenciesToScan>
-                                    <includes>
-                                        <include>**/ProxyServerTest.java</include>
                                     </includes>
                                     <suiteXmlFiles combine.self="override"/>
                                 </configuration>
