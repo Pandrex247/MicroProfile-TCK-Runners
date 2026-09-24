@@ -2,7 +2,7 @@
 <!--
    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-   Copyright (c) [2018-2021] Payara Foundation and/or its affiliates. All rights reserved.
+   Copyright (c) 2018-2026 Payara Foundation and/or its affiliates. All rights reserved.
 
    The contents of this file are subject to the terms of either the GNU
    General Public License Version 2 only ("GPL") or the Common Development
@@ -43,12 +43,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>fish.payara.microprofile.rest-client.tck-runner</groupId>
+        <groupId>fish.payara.microprofile.rest-client</groupId>
         <artifactId>parent</artifactId>
         <version>1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>default</artifactId>
+    <artifactId>rest-client-tck</artifactId>
     <packaging>jar</packaging>
 
     <name>MicroProfile Rest Client TCK Runner - Default</name>
@@ -73,9 +73,6 @@
                             <includes>
                                 <include>**/*Test.java</include>
                             </includes>
-                            <excludes>
-                                <exclude>**/ProxyServerTest.java</exclude>
-                            </excludes>
                             <suiteXmlFiles combine.self="override"/>
                         </configuration>
                     </execution>
