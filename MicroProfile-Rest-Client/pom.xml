@@ -54,7 +54,6 @@
     <name>MicroProfile Rest Client TCK Runner - Parent</name>
 
     <modules>
-        <module>arquillian-extension</module>
         <module>smallrye-config-repackaged</module>
         <module>tck-runner</module>
     </modules>
