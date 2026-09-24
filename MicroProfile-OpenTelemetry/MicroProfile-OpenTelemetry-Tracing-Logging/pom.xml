@@ -250,6 +250,7 @@
                                     <goal>run</goal>
                                 </goals>
                                 <configuration>
+                                    <skip>${skipConfig}</skip>
                                     <target>
                                         <exec executable="${java.home}${file.separator}bin${file.separator}java" failonerror="true">
                                             <arg value="-jar"/>
