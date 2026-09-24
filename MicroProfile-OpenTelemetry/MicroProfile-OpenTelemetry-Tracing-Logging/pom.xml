@@ -250,7 +250,7 @@
                                     <goal>run</goal>
                                 </goals>
                                 <configuration>
-                                    <target if="payara.micro.managed">
+                                    <target>
                                         <exec executable="${java.home}${file.separator}bin${file.separator}java" failonerror="true">
                                             <arg value="-jar"/>
                                             <arg value="${maven.multiModuleProjectDirectory}${file.separator}target${file.separator}payara-micro-${payara.version}.jar"/>
