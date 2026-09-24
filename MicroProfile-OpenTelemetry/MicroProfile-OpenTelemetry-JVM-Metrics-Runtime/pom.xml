@@ -245,15 +245,6 @@
                 <micro.otel.log.file>${project.build.directory}${file.separator}otel-metrics.log</micro.otel.log.file>
             </properties>
             <build>
-                <testResources>
-                    <testResource>
-                        <directory>src/test/resources</directory>
-                    </testResource>
-                    <testResource>
-                        <directory>src/test/resources-micro</directory>
-                        <filtering>true</filtering>
-                    </testResource>
-                </testResources>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
