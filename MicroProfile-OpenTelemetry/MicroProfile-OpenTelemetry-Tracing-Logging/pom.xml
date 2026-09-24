@@ -237,15 +237,6 @@
                 <payara.microJar>${project.build.directory}${file.separator}payara-micro-with-formatter.jar</payara.microJar>
             </properties>
             <build>
-                <testResources>
-                    <testResource>
-                        <directory>src/test/resources</directory>
-                    </testResource>
-                    <testResource>
-                        <directory>src/test/resources-micro</directory>
-                        <filtering>true</filtering>
-                    </testResource>
-                </testResources>
                 <plugins>
                     <!-- Build a Micro uber jar with CustomLoggerFormatter on the boot classpath. -->
                     <plugin>
