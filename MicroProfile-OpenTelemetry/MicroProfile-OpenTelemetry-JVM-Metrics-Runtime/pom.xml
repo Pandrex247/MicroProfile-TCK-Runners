@@ -95,7 +95,7 @@
                         </goals>
                         <configuration>
                             <skip>${skipConfig}</skip>
-                            <target unless="payara.micro.managed">
+                            <target if="payara.server">
                                 <exec executable="${payara.asadmin}">
                                     <arg value="create-system-property" />
                                     <arg value="--target" />
@@ -228,8 +228,7 @@
         <!--
             Payara Micro has no persistent domain, so the OpenTelemetry system
             properties the full-server profiles set via 'asadmin create-system-property'
-            (all guarded unless="payara.micro.managed") never get applied, leaving
-            mptelemetry.tck.log.file.path null and every test failing with an NPE.
+            never get applied, leaving mptelemetry.tck.log.file.path null and every test failing with an NPE.
 
             This profile supplies them to the Micro JVM instead, via EXTRA_MICRO_OPTIONS:
               * the systemproperties option feeds the otel.* settings and the log file path.

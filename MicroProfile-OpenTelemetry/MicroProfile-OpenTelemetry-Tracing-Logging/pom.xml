@@ -88,7 +88,7 @@
                         </goals>
                         <configuration>
                             <skip>${skipConfig}</skip>
-                            <target unless="payara.micro.managed">
+                            <target if="payara.server">
                                 <mkdir dir="${payara.home}${file.separator}glassfish${file.separator}domains${file.separator}${payara.domain.name}${file.separator}lib${file.separator}ext"/>
                                 <copy file="${project.build.directory}${file.separator}${project.build.finalName}.jar" toFile="${payara.home}${file.separator}glassfish${file.separator}domains${file.separator}${payara.domain.name}${file.separator}lib${file.separator}ext${file.separator}${project.build.finalName}.jar"/>
                             </target>
@@ -118,7 +118,7 @@
                         </goals>
                         <configuration>
                             <skip>${skipConfig}</skip>
-                            <target unless="payara.micro.managed">
+                            <target if="payara.server">
                                 <exec executable="${payara.asadmin}">
                                     <arg value="create-system-property" />
                                     <arg value="--target" />
